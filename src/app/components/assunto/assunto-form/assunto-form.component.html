@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header">
+      <h4 class="mb-0">{{ isEditMode ? 'Editar Assunto' : 'Cadastrar Assunto' }}</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="assuntoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="descricao" class="form-label">Descrição do Assunto</label>
+          <input id="descricao" type="text" class="form-control" placeholder="Digite a descrição do assunto"
+            formControlName="descricao" maxlength="20" />
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary me-2" [disabled]="assuntoForm.invalid">
+            {{ isEditMode ? 'Salvar Alterações' : 'Cadastrar' }}
+          </button>
+          <button type="button" class="btn btn-secondary" routerLink="/assunto">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

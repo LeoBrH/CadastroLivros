@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header">
+      <h4 class="mb-0">{{ isEditMode ? 'Editar Autor' : 'Cadastrar Autor' }}</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="autorForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="nome" class="form-label">Nome do Autor</label>
+          <input id="nome" type="text" class="form-control" placeholder="Digite o nome do autor"
+            formControlName="nome" maxlength="40" />
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary me-2" [disabled]="autorForm.invalid">
+            {{ isEditMode ? 'Salvar Alterações' : 'Cadastrar' }}
+          </button>
+          <button type="button" class="btn btn-secondary" routerLink="/autor">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

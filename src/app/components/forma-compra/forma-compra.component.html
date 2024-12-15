@@ -1,0 +1,32 @@
+<div>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Lista de Formas de Compra</h3>
+    <a routerLink="/forma-compra/novo" class="btn btn-success">Nova Forma de Compra</a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" class="fit-width">#</th>
+          <th scope="col">Descrição</th>
+          <th class="fit-width text-end"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let formaCompra of formasCompra">
+          <td class="fit-width">{{ formaCompra.codFC }}</td>
+          <td>{{ formaCompra.descricao }}</td>
+          <td class="fit-width text-end">
+            <a routerLink="/forma-compra/editar/{{ formaCompra.codFC }}" class="btn btn-sm btn-warning me-2">
+              Editar
+            </a>
+            <button class="btn btn-sm btn-danger" (click)="onDelete(formaCompra.codFC)">
+              Deletar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header">
+      <h4 class="mb-0">{{ isEditMode ? 'Editar Forma de Compra' : 'Cadastrar Forma de Compra' }}</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formaCompraForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="descricao" class="form-label">Descrição</label>
+          <input id="descricao" type="text" class="form-control" placeholder="Digite a descrição da forma de compra"
+            formControlName="descricao" maxlength="40" />
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary me-2" [disabled]="formaCompraForm.invalid">
+            {{ isEditMode ? 'Salvar Alterações' : 'Cadastrar' }}
+          </button>
+          <button type="button" class="btn btn-secondary" routerLink="/forma-compra">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

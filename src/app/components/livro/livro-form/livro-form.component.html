@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header">
+            <h4 class="mb-0">{{ isEditMode ? 'Editar Livro' : 'Cadastrar Livro' }}</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="livroForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input id="titulo" type="text" class="form-control" placeholder="Digite o título do livro"
+                        formControlName="titulo" maxlength="40"/>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="editora" class="form-label">Editora</label>
+                    <input id="editor" type="text" class="form-control" placeholder="Digite a editora do livro"
+                        formControlName="editora" maxlength="40" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="edicao" class="form-label">Edição</label>
+                    <input id="edicao" type="number" class="form-control" placeholder="Digite a edição do livro"
+                        formControlName="edicao" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="anoPublicacao" class="form-label">Ano de Publicação</label>
+                    <input id="anoPublicacao" type="text" class="form-control" placeholder="Digite o ano de publicação"
+                        formControlName="anoPublicacao" maxlength="4" />
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary me-2" [disabled]="livroForm.invalid">
+                        {{ isEditMode ? 'Salvar Alterações' : 'Cadastrar' }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" routerLink="/livro">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

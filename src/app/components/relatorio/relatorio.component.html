@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Relatório de Livros</h3>
+    <div class="d-flex gap-2">
+        <a (click)="salvarXLSX()" class="btn btn-primary">Baixar Planílha</a>
+        <a (click)="salvarPDF()" class="btn btn-primary">Baixar PDF</a>
+    </div>
+</div>
+<div *ngIf="relatorio" class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Autor</th>
+                <th scope="col">Título</th>
+                <th scope="col">Editora</th>
+                <th scope="col">Edição</th>
+                <th scope="col">Ano Publicação</th>
+                <th scope="col">Assunto</th>
+                <th scope="col">Forma de Compra</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of relatorio">
+                <td>{{ item.autor }}</td>
+                <td>{{ item.titulo }}</td>
+                <td>{{ item.editora }}</td>
+                <td>{{ item.edicao }}</td>
+                <td>{{ item.anoPublicacao }}</td>
+                <td>{{ item.assunto }}</td>
+                <td>{{ item.formaCompra }}</td>
+                <td>R$ {{ item.valor }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
